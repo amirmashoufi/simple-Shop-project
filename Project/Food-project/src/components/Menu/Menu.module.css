@@ -1,0 +1,57 @@
+.container {
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 70px;
+}
+
+.foodItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* افزایش فاصله بین هر غذا */
+
+}
+
+.foodImage {
+  width: 150px; /* تعیین اندازه تصویر */
+  margin-right: 20px; /* فاصله بین تصویر و متن */
+  height: 120px;
+}
+
+.foodDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.price {
+  margin-top: 5px; /* فاصله بین نام غذا و قیمت آن */
+}
+.vl {
+  border-bottom: 1px solid black;
+  height: 10px;
+  width: 10000%;
+  margin: 10px;
+}
+
+button {
+  margin: 10px;
+  background-color: rgb(171, 143, 237);
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+button:hover {
+  background-color: blueviolet;
+
+}
+
+.sub {
+  padding: 10px 20px;
+  margin-left: 9px;
+}
