@@ -6,9 +6,14 @@ import burger from '../../assest/burger.png'
 import pasta from '../../assest/pasta.png'
 import { useState } from 'react';
 import classes from './Menu.module.css';
+import { useRef } from 'react';
+import { useContext } from 'react';
+import CartContext from '../../store/cart-context';
 
-function Menu() {
+function Menu(props) {
+    const amountInputRef = useRef()
     const [foods, setFoods] = useState([
+        
         { id: 1,
             name: 'Pizza',
             price: '1200',
@@ -40,6 +45,17 @@ function Menu() {
                 quantity: 0 }
     ]);
 
+    const cartCtx = useContext(CartContext)
+
+    const AddToCartHandler = quantity => {
+        cartCtx.addItem({
+            id: props.id,
+            name: props.name,
+            quantity: quantity,
+            price: props.price
+        })
+    }
+
     const [loading, setLoading] = useState(false)
 
     const increaseQuantity = (index) => {
@@ -54,7 +70,11 @@ function Menu() {
         setFoods(updatedFoods);
     };
 
-    function submitFormHandler() {
+    function submitFormHandler(event) {
+        event.preventDefault();
+        const enteredAmount = amountInputRef.current.value;
+        const enteredAmountNumber = +enteredAmount
+        AddToCartHandler(enteredAmountNumber)
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
@@ -63,7 +83,7 @@ function Menu() {
 
     return (
         
-        <div className={classes.container }>
+        <div className={classes.container } >
             <Header />
             <h2>Choose your food.</h2>
             {foods.map((food, index) => (

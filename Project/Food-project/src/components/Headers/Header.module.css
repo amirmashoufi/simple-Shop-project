@@ -25,7 +25,9 @@ a {
 a:hover {
     color: #847daf;
 }
-
+span {
+    margin : 8px
+}
 
 
 
